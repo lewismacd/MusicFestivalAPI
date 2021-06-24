@@ -5,6 +5,10 @@ const resolvers = {
       festivals() {            
         return expectedResponse;
       },
+      recordLabels() {
+        //need to transform data from given API
+        return expectedResponse;
+      },   
     }
   };
 

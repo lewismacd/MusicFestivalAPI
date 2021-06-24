@@ -99,18 +99,11 @@ const expectedResponse =
     }
   ]
 
-
-
-// const expectedResponseFull = request('https://eacp.energyaustralia.com.au/codingtest/api/v1/festivals', { json: true }, (err, res, body) => {
+// const expectedResponse = request('https://eacp.energyaustralia.com.au/codingtest/api/v1/festivals', { json: true }, (err, res, body) => {
 //     if (err) { return console.log(err); }
-//     console.log("56565");
 //     console.log(body);
 // });
 
-// //console.log(expectedResponse[0]);
-// const expectedResponse = expectedResponseFull.body;
-// console.log('88888');
-// console.log(expectedResponse); 
-
-
 module.exports = { expectedResponse };
+
+

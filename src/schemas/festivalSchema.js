@@ -11,8 +11,15 @@ const typeDefs = gql`
     recordLabel: String
   }
 
+  type recordLabel {
+    name: String
+    bands: [Band]
+  }
+
   type Query {
     festivals: [Festival]!
+    recordLabels: [recordLabel]!
+    bands: [Band]!
   }
 `;
 
