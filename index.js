@@ -11,14 +11,14 @@
 //   });
 
 
-const request = require('request');
+// const request = require('request');
 
-const expectedResponse = request('https://eacp.energyaustralia.com.au/codingtest/api/v1/festivals', { json: true }, (err, res, body) => {
-    if (err) { return console.log(err); }
-    console.log(body);
-});
+// const expectedResponse = request('https://eacp.energyaustralia.com.au/codingtest/api/v1/festivals', { json: true }, (err, res, body) => {
+//     if (err) { return console.log(err); }
+//     console.log(body);
+// });
 
-console.log(body);
+
 
 // console.log(expectedResponse);
 // console.log("--------");
