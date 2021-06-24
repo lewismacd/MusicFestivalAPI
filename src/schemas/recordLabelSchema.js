@@ -3,7 +3,7 @@ const { gql } = require('apollo-server');
 const typeDefs = gql`
   
   type RecordLabel {
-    name: String
+    label: String
     bands: [Band]
   }
 
@@ -18,7 +18,6 @@ const typeDefs = gql`
 
   type Query {
     recordLabels: [RecordLabel]!
-    bands: [Band]!
   }
 `;
 

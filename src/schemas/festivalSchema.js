@@ -23,27 +23,4 @@ const typeDefs = gql`
   }
 `;
 
-// const typeDefs = gql`
-//   type Festival {
-//     name: String
-//     bands: [Band]
-//   }
-
-//   type recordLabel {
-//       name: String
-//       bands: [band]
-//   }
-//   type Band {
-//     name: String
-//     recordLabel: String
-//     festivals: [Festival]
-//   }
-
-//   type Query {
-//     bands: [Band]!
-//     festivals: [Festival]!
-//     recordLabels: [recordLabel]!
-//   }
-// `;
-
 module.exports = typeDefs;

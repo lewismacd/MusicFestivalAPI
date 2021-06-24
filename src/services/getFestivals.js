@@ -94,8 +94,22 @@ const expectedResponse =
           "recordLabel": "Pacific Records"
         }
       ]
-    }
+    },
+    {
+        "name": "Sample12345",
+        "bands": [
+            {
+                "name": "Winter Primates",
+                "recordLabel": ""
+              },
+              {
+                "name": "Frank Jupiter",
+                "recordLabel": "Pacific Records"
+              }
+        ]
+      },
   ]
+  //NOTE FOR ABOVE - I ADDED SAMPLE 12345
   
 
 // const request = require('request');

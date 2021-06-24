@@ -2,19 +2,17 @@
 //which is organised by festival names with band data under each festival and converts it to a list of
 //record labels with their bands and what festivals those bands have been to .....
 const { expectedResponse } = require('../services/getFestivals');
-
 const festivals = expectedResponse; // the response from the backend
-//console.log(festivals);
+
 let recordLabels = []
 
 for (let festival of festivals) {
 	for (let band of festival.bands) {
-     if (!containsRecordLabel(band.recordLabel)) {
-        // add new record label to `recordLabels`
+     if (!containsRecordLabel(recordLabels, band.recordLabel)) {
+        // add new record label to `recordLabels` with band
         addNewRecordLabel(band, festival.name);
-        console.log(recordLabels);
      } else {
-        // add band to existing label in `recordLabels` if band not already present
+        // add band to existing label in `recordLabels` if band not already present 
         if (!containsBand(band.recordLabel, band.name)){
             addBandToExistingLabel(band.recordLabel, band, festival.name);
         }
@@ -26,7 +24,7 @@ for (let festival of festivals) {
   }
 }
 
-function containsRecordLabel(recordLabel) {
+function containsRecordLabel(recordLabels, recordLabel) {
     for (let label of recordLabels) {
         if (label.label == recordLabel){
             return true
@@ -38,7 +36,7 @@ function containsBand(recordLabel, band){
     for (let label of recordLabels) {
         if (label.label == recordLabel){
             for(let i of label.bands){
-                if (i.name == band.name){
+                if (i.name == band){
                     return true
                 }
             }
@@ -63,7 +61,6 @@ function containsFestival(recordLabel, band, festival){
 }
 
 function addNewRecordLabel(band, festivalName) {
-    console.log(festivalName);
     recordLabels.push({
         "label": band.recordLabel,
         "bands": [{
@@ -91,20 +88,15 @@ function addBandToExistingLabel(recordLabel, band, festivalName){
 function addFestivalToExistingBand(recordLabel, band, festivalName){
     for (let label of recordLabels) {
         if (label.label == recordLabel){
-            label.bands.push({
-                "name": band.name,
-                "festivals": [{             
-                    "name": festivalName,
-                }]
-            })
+            for(let i of label.bands){
+                if (i.name == band.name){                  
+                    i.festivals.push({
+                        "name": festivalName
+                    }) 
+                }
+            }                      
         }
     }
 }
 
-// console.log(recordLabels[0].bands.festivals);
-// console.log(recordLabels[1].bands[0].festivals);
-// console.log(recordLabels[2]);
-// console.log(recordLabels[5]);
-// console.log(recordLabels[5].bands[0].festivals);
-
-//module.exports = { recordLabels };
+module.exports = { recordLabels };

@@ -1,7 +1,9 @@
 const { ApolloServer, gql } = require('apollo-server-lambda');
 const AWS = require('aws-sdk');
-const typeDefs = require('./schemas/festivalSchema');
-const resolvers = require('./resolvers/festivalResolver');
+//const typeDefs = require('./schemas/festivalSchema');
+//const resolvers = require('./resolvers/festivalResolver');
+const typeDefs = require('./schemas/recordLabelSchema');
+const resolvers = require('./resolvers/recordLabelResolver');
 
 const server = new ApolloServer({
     typeDefs,
