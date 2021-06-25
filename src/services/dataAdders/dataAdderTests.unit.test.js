@@ -1,3 +1,5 @@
+//MOVE SAMPLE DATA INTO SEPARATE FILE
+
 const {addNewRecordLabel} = require('./addNewRecordLabel');
 const {addBandToExistingLabel} = require('./addBandToExistingLabel');
 const {addFestivalToExistingBand} = require('./addFestivalToExistingBand');
@@ -74,14 +76,14 @@ const addNewRecordExpectedResult =
 
 //Check adding new band happens as expected using sample data
 test("Check adding new band occurs as expected, formatted correctly", () => {
-    
+    //TBC
 });
 
 const addNewBandTestExpectedResult = [];
 
 //Check adding new festival to band happens as expected using sample data
 test("Check adding new festival occurs as expected, formatted correctly", () => {
-    
+    //TBC
 });
 
 const addNewFestivalTestExpectedResult = [];

@@ -1,6 +1,9 @@
-const getFestivals = require('./getFestivals');
+//Test that getFestivals can successfully fetch data from API
 
-test('getFestivals retrieves festivals', () => {
-  console.log(getFestivals);
-  expect(getFestivals).toBe(3);
-});
+// const nock = require('nock')
+
+// const scope = nock('https://eacp.energyaustralia.com.au/')
+//   .get('/codingtest/api/v1/festivals')
+//   .reply(200, {
+//     //PUT NOCK REPLY HERE!!!
+//   })

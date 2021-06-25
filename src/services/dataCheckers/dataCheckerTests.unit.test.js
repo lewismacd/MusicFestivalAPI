@@ -1,3 +1,5 @@
+//MOVE SAMPLE DATA INTO SEPARATE FILE
+
 const {containsRecordLabel} = require('./containsRecordLabel');
 const {containsBand} = require('./containsBand');
 const {containsFestival} = require('./containsFestival');
