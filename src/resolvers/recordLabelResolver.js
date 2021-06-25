@@ -1,11 +1,11 @@
-const { recordLabels } = require('../services/festivalDataTransformer');
+const {convertFestivalData} = require('../services/festivalDataTransformer');
 
 const resolvers = {
-    Query: {    
-      recordLabels() {
-        return recordLabels;
-      },   
+    Query: {
+        recordLabels: async (_, context, { dataSources }) => {
+          return convertFestivalData(await dataSources.festivalsDataSource.getFestivals());
+        },  
     }
-  };
+};
 
-  module.exports = resolvers;
+module.exports = resolvers;
