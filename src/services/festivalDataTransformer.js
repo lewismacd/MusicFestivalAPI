@@ -6,8 +6,6 @@ const {addBandToExistingLabel} = require('../services/dataAdders/addBandToExisti
 const {addFestivalToExistingBand} = require('../services/dataAdders/addFestivalToExistingBand');
 
 function convertFestivalData(festivals){
-    console.log("here");
-    console.log(festivals);
     let recordLabels = []
     for (let festival of festivals) {
         for (let band of festival.bands) {
