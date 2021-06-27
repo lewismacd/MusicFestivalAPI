@@ -18,10 +18,9 @@ query recordLabels {
   }  
 }  
 
-How do I test it  
+Testing:   
 npm run test will run the test suite.
-
-How do I deploy it  
+ 
 
 
 
