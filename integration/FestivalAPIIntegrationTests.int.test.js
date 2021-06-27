@@ -23,7 +23,7 @@ const server = new ApolloServer({
 
 const { query } = createTestClient(server);
 
-test('find movie', async () => {
+test('find record labels', async () => {
   const RETURN_LABELS = gql`
     query recordLabels {
         recordLabels{

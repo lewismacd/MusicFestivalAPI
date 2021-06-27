@@ -1,9 +1,5 @@
-const {containsRecordLabel} = require('../services/dataCheckers/containsRecordLabel');
-const {containsBand} = require('../services/dataCheckers/containsBand');
-const {containsFestival} = require('../services/dataCheckers/containsFestival');
-const {addNewRecordLabel} = require('../services/dataAdders/addNewRecordLabel');
-const {addBandToExistingLabel} = require('../services/dataAdders/addBandToExistingLabel');
-const {addFestivalToExistingBand} = require('../services/dataAdders/addFestivalToExistingBand');
+const {containsRecordLabel, containsBand, containsFestival} = require('../services/dataCheckers/dataCheckers.js');
+const {addNewRecordLabel, addBandToExistingLabel, addFestivalToExistingBand} = require('../services/dataAdders/dataAdders.js');
 
 function convertFestivalData(festivals){
     let recordLabels = []

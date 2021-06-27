@@ -1,8 +1,5 @@
-//MOVE SAMPLE DATA INTO SEPARATE FILE
-
-const {containsRecordLabel} = require('./containsRecordLabel');
-const {containsBand} = require('./containsBand');
-const {containsFestival} = require('./containsFestival');
+//Tests for checking whether object contains records/bands/festivals
+const {containsRecordLabel, containsBand, containsFestival} = require('./dataCheckers.js');
 
 const presentLabel = "Record Label 1";
 const absentLabel = "Record Label 9";

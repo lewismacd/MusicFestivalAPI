@@ -1,8 +1,5 @@
-//MOVE SAMPLE DATA INTO SEPARATE FILE
-
-const {addNewRecordLabel} = require('./addNewRecordLabel');
-const {addBandToExistingLabel} = require('./addBandToExistingLabel');
-const {addFestivalToExistingBand} = require('./addFestivalToExistingBand');
+//Tests to check that adding a new record/band/festival occurs correctly.
+const {addNewRecordLabel, addBandToExistingLabel, addFestivalToExistingBand} = require('./dataAdders.js');
 
 const sampleFestival1 = "Sample Festival 1";
 
