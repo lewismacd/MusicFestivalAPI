@@ -1,9 +1,9 @@
-const { ApolloServer, gql } = require('apollo-server');
-const { createTestClient } = require('apollo-server-testing');
-const typeDefs = require('../src/schemas/recordLabelSchema');
-const resolvers = require('../src/resolvers/recordLabelResolver');
-const { FestivalDataSource } = require('../src/services/getFestivals.js');
-const nock = require('nock');
+const { ApolloServer, gql } = require("apollo-server");
+const { createTestClient } = require("apollo-server-testing");
+const typeDefs = require("../src/schemas/recordLabelSchema");
+const resolvers = require("../src/resolvers/recordLabelResolver");
+const { FestivalDataSource } = require("../src/services/getFestivals.js");
+const nock = require("nock");
 
 const sampleFestivalData = [
   {
@@ -79,8 +79,8 @@ const expectedLabelData = [
 ];
 
 //Use nock to intercept and mock API response
-const scope = nock('https://eacp.energyaustralia.com.au/')
-  .get('/codingtest/api/v1/festivals')
+const scope = nock("https://eacp.energyaustralia.com.au/")
+  .get("/codingtest/api/v1/festivals")
   .reply(200, sampleFestivalData);
 
 const server = new ApolloServer({
@@ -95,7 +95,7 @@ const server = new ApolloServer({
 
 const { query } = createTestClient(server);
 
-test('find record labels', async () => {
+test("Fetch festivals, transform, and query with GraphQL using mocked API call", async () => {
   const RETURN_LABELS = gql`
     query recordLabels {
       recordLabels {
