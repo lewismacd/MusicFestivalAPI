@@ -24,6 +24,7 @@ function convertFestivalData(festivals){
             }
         }
     }
+    //Call alphabetise function
     return recordLabels
 }
 
