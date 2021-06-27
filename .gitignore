@@ -4,3 +4,4 @@ src/services/getFestivals.unit.test.js
 .eslintrc
 .prettierrc
 coverage/
+practicer.js

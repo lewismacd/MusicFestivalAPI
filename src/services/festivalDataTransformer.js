@@ -10,6 +10,8 @@ const {
   addFestivalToExistingBand,
 } = require("../services/dataAdders/dataAdders.js");
 
+const { dynamicSort } = require("./alphabetise.js");
+
 //Take API data and convert to desired format
 function convertFestivalData(festivals){
   let recordLabels = [];
@@ -33,6 +35,7 @@ function convertFestivalData(festivals){
           }
         }
     }
+    recordLabels.sort(dynamicSort("label"));
     return recordLabels
 }
 
