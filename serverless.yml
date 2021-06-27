@@ -21,3 +21,5 @@ functions:
         path: graphql
         method: get
         cors: true
+    environment:
+      FESTIVAL_ENDPOINT: "https://eacp.energyaustralia.com.au/codingtest"
