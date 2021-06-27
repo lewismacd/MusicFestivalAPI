@@ -4,8 +4,8 @@ Can be used locally or deployed to AWS.
     
 
 How do I run it locally  
-Clone repo locally, install npm and dependencies. 
-Run 'npm run start' and open the 'GET' link to open GraphQL in browser.  
+Clone repo locally, npm install.   
+Run 'npm run start' and open the 'GET' link to open GraphQL in browser (endpoint http://localhost:3000/graphql)  
 Sample query as follows:  
 query recordLabels {  
   recordLabels{  
@@ -21,7 +21,11 @@ query recordLabels {
   
   
 Testing:   
-npm run test will run the test suite.
+npm run test will run the test suite.  
+To get code coverage:  
+npm test -- --coverage
+  
+
  
 
 
