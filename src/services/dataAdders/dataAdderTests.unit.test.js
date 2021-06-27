@@ -252,21 +252,17 @@ const addNewFestivalTestExpectedResult = [];
 
 //Check adding new record occurs as expected using sample data
 test("Check adding new record occurs as expected, formatted correctly", () => {
-    addNewRecordLabel(sampleNewDataRecordAdder, sampleBand1, sampleFestival1);
-    expect(sampleNewDataRecordAdder).toEqual(addNewRecordTestExpectedResult);
+  addNewRecordLabel(sampleNewDataRecordAdder, sampleBand1, sampleFestival1);
+  expect(sampleNewDataRecordAdder).toEqual(addNewRecordTestExpectedResult);
 });
 
 //Check adding new band happens as expected using sample data
 test("Check adding new band occurs as expected, formatted correctly", () => {
-    addBandToExistingLabel(sampleNewDataBandAdder, existingRecordLabel, sampleBand2, sampleFestival2);
-    expect(sampleNewDataBandAdder).toEqual(addNewBandTestExpectedResult);
+  addBandToExistingLabel(sampleNewDataBandAdder, existingRecordLabel, sampleBand2, sampleFestival2);
+  expect(sampleNewDataBandAdder).toEqual(addNewBandTestExpectedResult);
 });
 
 //Check adding new festival to band happens as expected using sample data
 test("Check adding new festival occurs as expected, formatted correctly", () => {
-    //TBC
+  //TBC
 });
-
-
-
-

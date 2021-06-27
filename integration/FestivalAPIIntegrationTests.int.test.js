@@ -2,113 +2,111 @@ const { ApolloServer, gql } = require('apollo-server');
 const { createTestClient } = require('apollo-server-testing');
 const typeDefs = require('../src/schemas/recordLabelSchema');
 const resolvers = require('../src/resolvers/recordLabelResolver');
-const {FestivalDataSource} = require('../src/services/getFestivals.js');
-const nock = require('nock')
+const { FestivalDataSource } = require('../src/services/getFestivals.js');
+const nock = require('nock');
 
-const sampleFestivalData = 
-[
-    {
-      "name": "Festival 1",
-      "bands": [
-        {
-          "name": "Band 1",
-          "recordLabel": "Record Label 1"
-        },
-        {
-          "name": "Band 2",
-          "recordLabel": "Record Label 2"
-        }
-      ]
-    },
-    {
-      "name": "Festival 2",
-      "bands": [
-        {
-          "name": "Band 3",
-          "recordLabel": "Record Label 3"
-        },
-        {
-          "name": "Band 1",
-          "recordLabel": "Record Label 1"
-        }
-      ]
-    }
-]
-const expectedLabelData = 
-[
-    {
-      "label": "Record Label 1",
-      "bands": [
-        {
-          "name": "Band 1",
-          "festivals": [
-              {
-                  "name": "Festival 1",
-              },
-              {
-                   "name": "Festival 2"
-              }
-            ]
-        },
-      ]
-    },
-    {
-      "label": "Record Label 2",
-      "bands": [
-        {
-          "name": "Band 2",
-          "festivals": [
-            {
-                "name": "Festival 1",
-            }
-          ]
-        }
-      ]
-    },
-    {
-        "label": "Record Label 3",
-        "bands": [
+const sampleFestivalData = [
+  {
+    name: 'Festival 1',
+    bands: [
+      {
+        name: 'Band 1',
+        recordLabel: 'Record Label 1',
+      },
+      {
+        name: 'Band 2',
+        recordLabel: 'Record Label 2',
+      },
+    ],
+  },
+  {
+    name: 'Festival 2',
+    bands: [
+      {
+        name: 'Band 3',
+        recordLabel: 'Record Label 3',
+      },
+      {
+        name: 'Band 1',
+        recordLabel: 'Record Label 1',
+      },
+    ],
+  },
+];
+const expectedLabelData = [
+  {
+    label: 'Record Label 1',
+    bands: [
+      {
+        name: 'Band 1',
+        festivals: [
           {
-            "name": "Band 3",
-            "festivals": [
-              {
-                  "name": "Festival 2",
-              }
-            ]
-          }
-        ]
-      }
+            name: 'Festival 1',
+          },
+          {
+            name: 'Festival 2',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'Record Label 2',
+    bands: [
+      {
+        name: 'Band 2',
+        festivals: [
+          {
+            name: 'Festival 1',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'Record Label 3',
+    bands: [
+      {
+        name: 'Band 3',
+        festivals: [
+          {
+            name: 'Festival 2',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 //Use nock to intercept and mock API response
 const scope = nock('https://eacp.energyaustralia.com.au/')
   .get('/codingtest/api/v1/festivals')
-  .reply(200, sampleFestivalData)
+  .reply(200, sampleFestivalData);
 
 const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    dataSources: () => {
-      return {
-        festivalsDataSource: new FestivalDataSource(),
-      };
-    }
-  });
+  typeDefs,
+  resolvers,
+  dataSources: () => {
+    return {
+      festivalsDataSource: new FestivalDataSource(),
+    };
+  },
+});
 
 const { query } = createTestClient(server);
 
 test('find record labels', async () => {
   const RETURN_LABELS = gql`
     query recordLabels {
-        recordLabels{
-            label
-            bands{
-                name
-                festivals{
-                    name
-                }   
-            }
+      recordLabels {
+        label
+        bands {
+          name
+          festivals {
+            name
+          }
         }
+      }
     }
   `;
 

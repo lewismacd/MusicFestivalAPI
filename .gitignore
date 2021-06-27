@@ -1,3 +1,5 @@
 node_modules
 temp2.js
 src/services/getFestivals.unit.test.js
+.eslintrc
+.prettierrc
