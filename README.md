@@ -1,12 +1,26 @@
 # MusicFestivalAPI
 Application that retrives data from an external API, transforms that data, and permits queries on that data through GraphQL. 
 Can be used locally or deployed to AWS.
-    
 
-How do I run it locally  
-Clone repo locally, npm install.   
-Run 'npm run start' and open the 'GET' link to open GraphQL in browser (endpoint http://localhost:3000/graphql)  
-Sample query as follows:  
+## Installation
+
+Clone github repo locally, cd to root of project directory, and run:
+
+```bash
+npm install
+```
+
+## Usage
+  
+Run the below, opening the GET endpoint (http://localhost:3000/graphql)
+
+```bash
+npm run start
+```
+  
+Example GraphQL query:  
+  
+```bash
 query recordLabels {  
   recordLabels{  
     label  
@@ -18,15 +32,18 @@ query recordLabels {
     }  
   }  
 }  
+```
+
+## Testing
+
+Run the below to run the test suite:  
   
+```bash
+npm run test
+```
   
-Testing:   
-npm run test will run the test suite.  
-To get code coverage:  
+And the below to include code coverage reporting:  
+  
+```bash
 npm test -- --coverage
-  
-
- 
-
-
-
+```
