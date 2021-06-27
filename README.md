@@ -1,6 +1,6 @@
 # MusicFestivalAPI
 Application that retrives data from an external API, transforms that data, and permits queries on that data through GraphQL. 
-Can be used locally or deployed to AWS.
+
 
 ## Installation
 
