@@ -1,6 +1,7 @@
 const {containsRecordLabel, containsBand, containsFestival} = require('../services/dataCheckers/dataCheckers.js');
 const {addNewRecordLabel, addBandToExistingLabel, addFestivalToExistingBand} = require('../services/dataAdders/dataAdders.js');
 
+//Take API data and convert to desired format
 function convertFestivalData(festivals){
     let recordLabels = []
     for (let festival of festivals) {
@@ -24,7 +25,6 @@ function convertFestivalData(festivals){
             }
         }
     }
-    //Call alphabetise function
     return recordLabels
 }
 

@@ -1,3 +1,5 @@
+//Functions to check whether record/band/festival already exists in transformed data object
+
 function containsRecordLabel(recordLabels, recordLabel) {
     for (let label of recordLabels) {
         if (label.label == recordLabel){

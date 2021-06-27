@@ -1,3 +1,5 @@
+//Functions for pushing recordLabels/bands/festivals to our converted data object
+
 function addNewRecordLabel(recordLabels, band, festivalName) {
     recordLabels.push({
         "label": band.recordLabel,
