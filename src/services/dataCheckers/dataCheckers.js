@@ -11,8 +11,8 @@ function containsRecordLabel(recordLabels, recordLabel) {
 function containsBand(recordLabels, recordLabel, band) {
   for (let label of recordLabels) {
     if (label.label == recordLabel) {
-      for (let i of label.bands) {
-        if (i.name == band) {
+      for (let currentBand of label.bands) {
+        if (currentBand.name == band) {
           return true;
         }
       }
@@ -23,10 +23,10 @@ function containsBand(recordLabels, recordLabel, band) {
 function containsFestival(recordLabels, recordLabel, band, festival) {
   for (let label of recordLabels) {
     if (label.label == recordLabel) {
-      for (let i of label.bands) {
-        if (i.name == band) {
-          for (let j of i.festivals) {
-            if (j.name == festival) {
+      for (let currentBand of label.bands) {
+        if (currentBand.name == band) {
+          for (let currentFestival of currentBand.festivals) {
+            if (currentFestival.name == festival) {
               return true;
             }
           }

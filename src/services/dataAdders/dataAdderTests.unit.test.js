@@ -1,5 +1,5 @@
 //Tests to check that adding a new record/band/festival occurs correctly.
-const {addNewRecordLabel, addBandToExistingLabel, addFestivalToExistingBand} = require('./dataAdders.js');
+const {addNewRecordLabel, addBandToExistingLabel} = require('./dataAdders.js');
 
 const existingRecordLabel = "Record Label 2";
 const sampleFestival1 = "Sample Festival 1";
@@ -205,51 +205,6 @@ const addNewBandTestExpectedResult =
     }
 ]
 
-//Sample data of a partially complete transformation
-const sampleNewDataFestivalAdder = 
-[
-    {
-        "label": "Record Label 1",
-        "bands": [
-            {
-                "name": "Band 1",
-                "festivals": [
-                    {
-                        "name": "Festival 1",
-                    }
-                ]
-            },
-            {
-                "name": "Band 2",
-                "festivals": [
-                    {
-                        "name": "Festival 2",
-                    },
-                    {
-                        "name": "Festival 3",
-                    }
-
-                ]
-            }
-        ]
-    },
-    {
-        "label": "Record Label 2",
-        "bands": [
-            {
-                "name": "Band 3",
-                "festivals": [
-                    {
-                        "name": "Festival 1"
-                    }
-                ]
-            }
-        ]
-    }
-]
-//Expected result after adding new festival
-const addNewFestivalTestExpectedResult = [];
-
 //Check adding new record occurs as expected using sample data
 test("Check adding new record occurs as expected, formatted correctly", () => {
   addNewRecordLabel(sampleNewDataRecordAdder, sampleBand1, sampleFestival1);
@@ -260,9 +215,4 @@ test("Check adding new record occurs as expected, formatted correctly", () => {
 test("Check adding new band occurs as expected, formatted correctly", () => {
   addBandToExistingLabel(sampleNewDataBandAdder, existingRecordLabel, sampleBand2, sampleFestival2);
   expect(sampleNewDataBandAdder).toEqual(addNewBandTestExpectedResult);
-});
-
-//Check adding new festival to band happens as expected using sample data
-test("Check adding new festival occurs as expected, formatted correctly", () => {
-  //TBC
 });

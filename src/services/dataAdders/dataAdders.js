@@ -39,9 +39,9 @@ function addFestivalToExistingBand(
 ) {
   for (let label of recordLabels) {
     if (label.label == recordLabel) {
-      for (let i of label.bands) {
-        if (i.name == band.name) {
-          i.festivals.push({
+      for (let currentBand of label.bands) {
+        if (currentBand.name == band.name) {
+          currentBand.festivals.push({
             name: festivalName,
           });
         }

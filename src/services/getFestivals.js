@@ -5,7 +5,6 @@ class FestivalDataSource extends RESTDataSource {
     this.baseURL = process.env.FESTIVAL_ENDPOINT;
   }
   async getFestivals() {
-    console.log(this.baseURL);
     return this.get(`/api/v1/festivals`);
   }
 }

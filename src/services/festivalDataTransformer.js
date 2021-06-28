@@ -20,7 +20,8 @@ function convertFestivalData(festivals){
       if (!containsRecordLabel(recordLabels, band.recordLabel)) {
         // add new record label to `recordLabels` with band
         addNewRecordLabel(recordLabels, band, festival.name);
-      } else {
+      } 
+      else {
           // add band to existing label in `recordLabels` if band not already present
           if (!containsBand(recordLabels, band.recordLabel, band.name)) {
             addBandToExistingLabel(recordLabels, band.recordLabel, band, festival.name);

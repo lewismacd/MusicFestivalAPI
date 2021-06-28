@@ -79,8 +79,8 @@ const expectedLabelData = [
 ];
 
 //Use nock to intercept and mock API response
-const scope = nock("https://eacp.energyaustralia.com.au/")
-  .get("/codingtest/api/v1/festivals")
+const scope = nock(process.env.FESTIVAL_ENDPOINT)
+  .get("/api/v1/festivals")
   .reply(200, sampleFestivalData);
 
 const server = new ApolloServer({
