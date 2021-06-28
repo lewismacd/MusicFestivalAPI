@@ -1,28 +1,28 @@
-const { logger } = require('../logger.js')
+const { logger } = require("../logger.js");
 
 const {
   containsRecordLabel,
   containsBand,
-  containsFestival
-} = require('../services/dataCheckers/dataCheckers.js')
+  containsFestival,
+} = require("../services/dataCheckers/dataCheckers.js");
 
 const {
   addNewRecordLabel,
   addBandToExistingLabel,
-  addFestivalToExistingBand
-} = require('../services/dataAdders/dataAdders.js')
+  addFestivalToExistingBand,
+} = require("../services/dataAdders/dataAdders.js");
 
-const { dynamicSort } = require('./alphabetise.js')
+const { dynamicSort } = require("./alphabetise.js");
 
 // Take API data and convert to desired format
-function convertFestivalData (festivals) {
-  logger.info('Festival data conversion commencing.')
-  const recordLabels = []
+function convertFestivalData(festivals) {
+  logger.info("Festival data conversion commencing.");
+  const recordLabels = [];
   for (const festival of festivals) {
     for (const band of festival.bands) {
       if (!containsRecordLabel(recordLabels, band.recordLabel)) {
         // add new record label to `recordLabels` with band
-        addNewRecordLabel(recordLabels, band, festival.name)
+        addNewRecordLabel(recordLabels, band, festival.name);
       } else {
         // add band to existing label in `recordLabels` if band not already present
         if (!containsBand(recordLabels, band.recordLabel, band.name)) {
@@ -31,7 +31,7 @@ function convertFestivalData (festivals) {
             band.recordLabel,
             band,
             festival.name
-          )
+          );
         }
         // add festival to existing band if festival not already present
         else if (
@@ -47,16 +47,16 @@ function convertFestivalData (festivals) {
             band.recordLabel,
             band,
             festival.name
-          )
+          );
         } else {
-          logger.warn('Record Label and band/festival already present.')
+          logger.warn("Record Label and band/festival already present.");
         }
       }
     }
   }
-  recordLabels.sort(dynamicSort('label'))
-  logger.info('Conversion and sorting complete.')
-  return recordLabels
+  recordLabels.sort(dynamicSort("label"));
+  logger.info("Conversion and sorting complete.");
+  return recordLabels;
 }
 
-module.exports = { convertFestivalData }
+module.exports = { convertFestivalData };
