@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+const { gql } = require('apollo-server')
 
 const typeDefs = gql`
   
@@ -19,6 +19,6 @@ const typeDefs = gql`
   type Query {
     recordLabels: [RecordLabel]!
   }
-`;
+`
 
-module.exports = typeDefs;
+module.exports = typeDefs

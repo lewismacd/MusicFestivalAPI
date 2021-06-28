@@ -1,6 +1,7 @@
-//Functions for pushing recordLabels/bands/festivals to our converted data object
+const { logger } = require('../../logger.js')
 
-function addNewRecordLabel(recordLabels, band, festivalName) {
+// Functions for pushing recordLabels/bands/festivals to our converted data object
+function addNewRecordLabel (recordLabels, band, festivalName) {
   recordLabels.push({
     label: band.recordLabel,
     bands: [
@@ -8,42 +9,43 @@ function addNewRecordLabel(recordLabels, band, festivalName) {
         name: band.name,
         festivals: [
           {
-            name: festivalName,
-          },
-        ],
-      },
-    ],
-  });
+            name: festivalName
+          }
+        ]
+      }
+    ]
+  })
 }
 
-function addBandToExistingLabel(recordLabels, recordLabel, band, festivalName) {
-  for (let label of recordLabels) {
-    if (label.label == recordLabel) {
+function addBandToExistingLabel (recordLabels, recordLabel, band, festivalName) {
+  for (const label of recordLabels) {
+    if (label.label === recordLabel) {
       label.bands.push({
         name: band.name,
         festivals: [
           {
-            name: festivalName,
-          },
-        ],
-      });
+            name: festivalName
+          }
+        ]
+      })
     }
   }
+  logger.warn('Record label already exists, potential data checker issue.')
 }
 
-function addFestivalToExistingBand(
+function addFestivalToExistingBand (
   recordLabels,
   recordLabel,
   band,
   festivalName
 ) {
-  for (let label of recordLabels) {
-    if (label.label == recordLabel) {
-      for (let currentBand of label.bands) {
-        if (currentBand.name == band.name) {
+  for (const label of recordLabels) {
+    if (label.label === recordLabel) {
+      for (const currentBand of label.bands) {
+        if (currentBand.name === band.name) {
           currentBand.festivals.push({
-            name: festivalName,
-          });
+            name: festivalName
+          })
         }
       }
     }
@@ -53,5 +55,5 @@ function addFestivalToExistingBand(
 module.exports = {
   addNewRecordLabel,
   addBandToExistingLabel,
-  addFestivalToExistingBand,
-};
+  addFestivalToExistingBand
+}

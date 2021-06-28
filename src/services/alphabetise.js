@@ -1,15 +1,15 @@
-//Sort function to sort recordLabels by "label"
-function dynamicSort(property) {
-  var sortOrder = 1;
+// Sort function to sort recordLabels by "label"
+function dynamicSort (property) {
+  let sortOrder = 1
   if (property[0] === '-') {
-    sortOrder = -1;
-    property = property.substr(1);
+    sortOrder = -1
+    property = property.substr(1)
   }
   return function (a, b) {
-    var result =
-      a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
-    return result * sortOrder;
-  };
+    const result =
+      a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0
+    return result * sortOrder
+  }
 }
 
-module.exports = { dynamicSort };
+module.exports = { dynamicSort }

@@ -4,7 +4,7 @@
     "description": "festivals-graphql-api",
     "main": "index.js",
     "scripts": {
-        "test": "jest",
+        "test": "jest --coverage",
         "start": "sls offline start"
     },
     "author": "csp",
@@ -17,6 +17,7 @@
         "axios": "^0.21.1",
         "graphql": "^15.5.0",
         "graphql-type-json": "^0.3.2",
+        "pino": "^6.11.3",
         "request": "^2.81.0"
     },
     "devDependencies": {
@@ -29,7 +30,11 @@
         "nock": "^13.1.0",
         "prettier": "^2.3.1",
         "serverless": "^2.43.1",
-        "serverless-offline": "^7.0.0"
+        "serverless-offline": "^7.0.0",
+        "standard": "^16.0.3"
+    },
+    "standard": {
+        "env": [ "jest" ]
     },
     "editor.formatOnSave": true
 }
